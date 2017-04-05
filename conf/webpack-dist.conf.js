@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FailPlugin = require('webpack-fail-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   module: {
@@ -75,7 +76,16 @@ module.exports = {
           configuration: require('../tslint.json')
         }
       }
-    })
+    }),
+      new CopyWebpackPlugin([
+          { from: './src/**/*.html', to: ''},
+
+      ], {
+          ignore: [  
+              'index.html',
+          ],
+          copyUnmodified: true
+      })
   ],
   output: {
     path: path.join(process.cwd(), conf.paths.dist),
