@@ -1,5 +1,5 @@
 # complete web project Structure
-Pull the repo for initial complete web project setup
+Pull the repo for initial web project setup
 
 ## key features:
 * ES6 & Typescript Support
